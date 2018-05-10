@@ -5,6 +5,8 @@ class Pet extends React.Component {
     super();
   }
 
+  adoptPet = () => this.props.onAdoptPet(this.props.pet.id)
+
   render() {
     const { pet: { name, type, gender, age, weight }, isAdopted } = this.props;
 
@@ -23,7 +25,7 @@ class Pet extends React.Component {
         <div className="extra content">
           {isAdopted ?
             <button className="ui disabled button">Already adopted</button> :
-            <button className="ui primary button" onClick={this.handleAdoptPet}>Adopt pet</button>
+            <button className="ui primary button" onClick={this.adoptPet}>Adopt pet</button>
           }
         </div>
       </div>
